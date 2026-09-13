@@ -1,8 +1,18 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 
 load_dotenv()
+
+
+def _default_sqlite_db_path() -> str:
+    configured_path = os.getenv("SQLITE_DB_PATH")
+    if configured_path:
+        return configured_path
+    if os.getenv("VERCEL"):
+        return "/tmp/tvb_leads.db"
+    return str(Path.cwd() / "tvb_leads.db")
 
 
 
@@ -37,7 +47,7 @@ class Settings(BaseModel):
         default_factory=lambda: int(os.getenv("MAX_PAGES_PER_CANDIDATE", "4"))
     )
     sqlite_db_path: str = Field(
-        default_factory=lambda: os.getenv("SQLITE_DB_PATH", "tvb_leads.db")
+        default_factory=_default_sqlite_db_path
     )
 
 
