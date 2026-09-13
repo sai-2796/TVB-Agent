@@ -3,17 +3,5 @@
   "buildCommand": "npm --prefix frontend run build",
   "installCommand": "npm --prefix frontend ci",
   "outputDirectory": "frontend/dist",
-  "routes": [
-    {
-      "src": "^/api/(.*)$",
-      "dest": "/api/main.py"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "^/(.*)$",
-      "dest": "/index.html"
-    }
-  ]
+  "framework": "vite"
 }
