@@ -3,14 +3,17 @@
   "buildCommand": "npm --prefix frontend run build",
   "installCommand": "npm --prefix frontend ci",
   "outputDirectory": "frontend/dist",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/:path*",
-      "destination": "/api/main.py"
+      "src": "^/api/(.*)$",
+      "dest": "/api/main.py"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/(.*)$",
+      "dest": "/index.html"
     }
   ]
 }
