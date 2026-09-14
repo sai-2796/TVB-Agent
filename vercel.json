@@ -8,14 +8,17 @@
       "maxDuration": 60
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/:path*",
-      "destination": "/api/index.py"
+      "handle": "filesystem"
     },
     {
-      "source": "/((?!api/).*)",
-      "destination": "/index.html"
+      "src": "/api/(.*)",
+      "dest": "/api/index.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
