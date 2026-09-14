@@ -1,7 +1,6 @@
 {
   "version": 2,
   "buildCommand": "npm --prefix frontend run build",
-  "installCommand": "pip install -r requirements.txt && npm --prefix frontend ci",
   "outputDirectory": "frontend/dist",
   "functions": {
     "api/index.py": {
