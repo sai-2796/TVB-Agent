@@ -1,0 +1,7 @@
+{
+  "name": "tvb-agent",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ]
+}
