@@ -3,5 +3,10 @@
   "buildCommand": "npm --prefix frontend run build",
   "installCommand": "npm --prefix frontend ci",
   "outputDirectory": "frontend/dist",
-  "framework": "vite"
+  "framework": "vite",
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 60
+    }
+  }
 }
